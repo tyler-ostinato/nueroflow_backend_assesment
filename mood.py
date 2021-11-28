@@ -8,10 +8,6 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///mood.db'
 db = SQLAlchemy(app)
 
-# ENV VARS
-# export FLASK_APP=mood.py
-# export FLASK_ENV=development
-# flask run --host 0.0.0.0 --port 5001
 
 # Store list of moods for a user by date
 class MoodList(db.Model):
@@ -73,19 +69,6 @@ def add_mood():
     db.session.commit()
     return {"Date":datetime.now(), "Mood":mood.mood}
 
-
-# must run login db and mood db in seperate hosts
-# run app.py first, then in new terminal while open on other file run the mood.py
-# flask run --host 0.0.0.0 --port 5000 (for app.py) and flask run --host 0.0.0.0 --port 5001 (for mood.py)
-
-# python3
-# from mood import db                                                   ;import database settings
-# db.create_all()                                                       ;create tables
-# from mood import MoodList          
-# mood = MoodList(date=datetime.now().date(), user='Tyler', mood="Happy")      ;create object for database
-# db.session.add(mood)
-# db.session.commit()
-# MoodList.query.all()                                                  ;query database
 
 if __name__ == '__main__':
     app.run(debug=True)

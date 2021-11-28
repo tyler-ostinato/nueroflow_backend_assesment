@@ -1,16 +1,12 @@
-from enum import unique
 from os import EX_CONFIG
-import re
 import bcrypt
-from flask import Flask, render_template, url_for, redirect, session, request
+from flask import Flask, render_template, url_for, redirect, session
 from flask_session import Session
-import flask_login
 from flask_login.utils import login_required
 from flask_sqlalchemy import SQLAlchemy
-from flask_login import UserMixin, login_manager, login_user, LoginManager, logout_user, current_user
+from flask_login import UserMixin, login_manager, login_user, LoginManager, logout_user
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
-from wtforms import validators
 from wtforms.validators import InputRequired, Length, ValidationError
 from flask_bcrypt import Bcrypt
 import json
