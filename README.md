@@ -40,7 +40,7 @@ flask run --host 0.0.0.0 --port 5000
 ```
 Look for a link in the terminal that will direct you to the home page of the application. Should look similar to http://192.168.1.22:5000/. This page will allow a user to create or sign in to an existing account.
 
-5) Next we need to run the /mood endpoint to load the user data.
+5) Next run the /mood endpoint to load the user data.
 ```
 export FLASK_APP=mood.py
 export FLASK_ENV=development
@@ -79,8 +79,10 @@ A successful run will return a status of 200 and a payload similar to
 ```
 
 ## Questions
-If this were a production application I would need to look more into security. For example, using the GET request for the /mood endpoint we can pass an username and see the data of that user. In reality we would need to prevent unauthorized users getting access to someone else's data. I would probably get rid of the /mood?user="" parameter and only allow access to the data through the website which is more secure. 
+Document what, if anything, you would do differently if this were a production application and not an assessment? What tech would you use? How would you handle things differently if it needed to handle more users, more data, etc?
 
-Another imporvement would have to be the front end for the users. Currently I am only returning a JSON payload of the information for the user. Ideally with more time I would implement some more JS, CSS, and HTML to make a nice user interface and maybe some basic statistics of the user. 
+- If this were a production application I would need to look more into security. For example, using the GET request for the /mood endpoint we can pass an username and see the data of that user. In reality we would need to prevent unauthorized users getting access to someone else's data. I would probably get rid of the /mood?user="" parameter and only allow access to the data through the website which is more secure. 
 
-As for storing the user data I would use a different database then the flask sqlite database I am using. This is not an efficient use of storing user data as it is limited to my computer and the size of the .db file. In production I would need something faster, more resilient, and more secure. 
+- Another imporvement would have to be the front end for the users. Currently I am only returning a JSON payload of the information for the user. Ideally with more time I would implement some more JS, CSS, and HTML to make a nice user interface and maybe some basic statistics of the user. 
+
+- As for storing the user data I would use a different database then the flask sqlite database I am using. This is not an efficient use of storing user data as it is limited to my computer and the size of the .db file. In production I would need something faster, more resilient, and more secure. 
