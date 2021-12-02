@@ -64,7 +64,7 @@ def find_mood():
 @app.route('/mood', methods=['POST'])
 def add_mood():
     # post a new mood submitted by the user
-    mood = MoodList(date=datetime.now().date()+timedelta(days=40), user=request.json['user'], mood=request.json['mood'])
+    mood = MoodList(date=datetime.now().date(), user=request.json['user'], mood=request.json['mood'])
     db.session.add(mood)
     db.session.commit()
     return {"Date":datetime.now(), "Mood":mood.mood}
